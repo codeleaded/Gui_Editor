@@ -21,12 +21,12 @@ TextBox editor;
 Button btn_save;
 Button btn_load;
 
-void Button_React_Save(Button *b,ButtonEvent *be){
+void Button_React_Save(void* parent,Button *b,ButtonEvent *be){
     if(be->eid == EVENT_PRESSED){
         Files_WriteT("./data/Output.h",editor.In.Buffer.Memory,editor.In.Buffer.size);
     }
 }
-void Button_React_Load(Button *b,ButtonEvent *be){
+void Button_React_Load(void* parent,Button *b,ButtonEvent *be){
     if(be->eid == EVENT_PRESSED){
         CStr cstr = Files_ReadT("./data/Output.h");
         String_Clear(&editor.In.Buffer);
@@ -47,19 +47,19 @@ void Setup(AlxWindow* w){
 
 void Update(AlxWindow* w){
     TextBox_Update(&editor,window.Strokes,GetMouse());
-    Button_Update(&btn_save,window.Strokes,GetMouse(),GetMouseBefore());
-    Button_Update(&btn_load,window.Strokes,GetMouse(),GetMouseBefore());
+    Button_Update(&editor,&btn_save,window.Strokes,GetMouse(),GetMouseBefore());
+    Button_Update(&editor,&btn_load,window.Strokes,GetMouse(),GetMouseBefore());
 
     Clear(BLACK);
     TextBox_Render(WINDOW_STD_ARGS,&editor);
     
-    Button_Render(WINDOW_STD_ARGS,&btn_save);
-    Button_Render(WINDOW_STD_ARGS,&btn_load);
+    Button_Render(WINDOW_STD_ARGS,&editor,&btn_save);
+    Button_Render(WINDOW_STD_ARGS,&editor,&btn_load);
 }
 
 void Delete(AlxWindow* w){
-    Button_Free(&btn_load);
-    Button_Free(&btn_save);
+    Button_Free(&editor,&btn_load);
+    Button_Free(&editor,&btn_save);
     TextBox_Free(&editor);
 }
 
