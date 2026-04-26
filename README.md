@@ -1,193 +1,71 @@
-# Gui_Editor
+## Overview
+The project is a simple GUI editor written in C using a custom windowing system. It supports saving and loading files, text editing, and basic file operations.
 
+## Features
+- Basic text editing
+- File opening, saving, and creating
+- Custom windowing system for rendering
 
-## Project Overview
-
-This project implements specialized functionality related to editor.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for editor
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+## Project Structure
+```
+GuiEditor/
+├── build/              
+├── bin/                
+├── libs/               
+├── lib/                
+├── code/               
+├── data/               
+├── assets/             
+├── src/                
+│   ├── Main.c          # Entry point
+│   └── *.h             # Standalone Header-based C-files, without *.c files that implement it
+├── Makefile.linux      # Linux Build configuration
+├── Makefile.windows    # Windows Build configuration
+├── Makefile.wine       # Wine Build configuration for cross-compiling to Windows on Linux
+└── README.md           # This file
+├── LICENSE
+└── .gitignore
+```
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC, Clang)
 - Make utility
 - Standard development tools
 
-### Build Steps
+## Build & Run
+The project uses four different makefiles for building on different platforms. Here’s how to build and run it:
 
-1. Navigate to project directory:
+### Linux Build
 ```bash
-cd Gui_Editor
+cd GuiEditor
+make -f Makefile.linux all
+make -f Makefile.linux exe  # Run the application
 ```
 
-2. Build the project:
+### Windows Build
 ```bash
-make -f Makefile.(os) all
+cd GuiEditor
+make -f Makefile.windows all
+make -f Makefile.windows exe  # Run the application
 ```
 
-3. For clean rebuild:
+### Wine Build (Cross-compiling to Windows on Linux)
 ```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
+cd GuiEditor
+make -f Makefile.wine all
+make -f Makefile.wine exe  # Run the application using Wine
 ```
 
-4. If there are ./bin and ./libs directories, build libs with:
+### WebAssembly Build
 ```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
+cd GuiEditor
+make -f Makefile.web all
+make -f Makefile.web exe  # Serve the application via emrun (requires Emscripten)
 ```
 
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
+# Build Steps
+- Navigate to the project directory.
+- Use `make -f Makefile.(os) all` for building.
+- For a clean build, use `make -f Makefile.(os) clean` and then rebuild with `all`.
 
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Gui_Editor/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+This setup allows you to compile and run the GUI editor on Linux, Windows, and even create WebAssembly for web-based execution.
