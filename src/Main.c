@@ -1,15 +1,15 @@
 #if defined(__linux__)
     #include "/home/codeleaded/System/Static/Library/WindowEngine.h"
     #include "/home/codeleaded/System/Static/Library/ObjectNotation.h"
-    #define C_SYNTAX "/home/codeleaded/System/SyntaxFiles/C_Syntax.alxon"
+    #define C_SYNTAX "/home/codeleaded/System/SyntaxFiles/C_Syntax.json"
 #elif defined(_WINE)
     #include "/home/codeleaded/System/Static/Library/WindowEngine.h"
     #include "/home/codeleaded/System/Static/Library/ObjectNotation.h"
-    #define C_SYNTAX "/home/codeleaded/System/SyntaxFiles/C_Syntax.alxon"
+    #define C_SYNTAX "/home/codeleaded/System/SyntaxFiles/C_Syntax.json"
 #elif defined(_WIN32)
     #include "F:/home/codeleaded/System/Static/Library/WindowEngine.h"
     #include "F:/home/codeleaded/System/Static/Library/ObjectNotation.h"
-    #define C_SYNTAX "F:/home/codeleaded/System/SyntaxFiles/C_Syntax.alxon"
+    #define C_SYNTAX "F:/home/codeleaded/System/SyntaxFiles/C_Syntax.json"
 #elif defined(__APPLE__)
     #error "Apple not supported!"
 #else
